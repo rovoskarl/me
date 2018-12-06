@@ -12,17 +12,12 @@
 
 `Nan::AsyncWorker` is an _abstract_ class that you can subclass to have much of the annoying asynchronous queuing and handling taken care of for you. It can even store arbitrary V8 objects for you and have them persist while the asynchronous work is in progress.
 
-This class internally handles the details of creating an [`AsyncResource`][AsyncResource], and running the callback in the
-correct async context. To be able to identify the async resources created by this class in async-hooks, provide a
-`resource_name` to the constructor. It is recommended that the module name be used as a prefix to the `resource_name` to avoid
-collisions in the names. For more details see [`AsyncResource`][AsyncResource] documentation.  The `resource_name` needs to stay valid for the lifetime of the worker instance.
-
 Definition:
 
 ```c++
 class AsyncWorker {
  public:
-  explicit AsyncWorker(Callback *callback_, const char* resource_name = "nan:AsyncWorker");
+  explicit AsyncWorker(Callback *callback_);
 
   virtual ~AsyncWorker();
 
@@ -78,9 +73,9 @@ Definition:
 template<class T>
 class AsyncProgressWorkerBase<T> : public AsyncWorker {
  public:
-  explicit AsyncProgressWorkerBase(Callback *callback_, const char* resource_name = ...);
+  explicit AsyncProgressWorker(Callback *callback_);
 
-  virtual ~AsyncProgressWorkerBase();
+  virtual ~AsyncProgressWorker();
 
   void WorkProgress();
 
@@ -113,7 +108,7 @@ Definition:
 template<class T>
 class AsyncProgressQueueWorker<T> : public AsyncWorker {
  public:
-  explicit AsyncProgressQueueWorker(Callback *callback_, const char* resource_name = "nan:AsyncProgressQueueWorker");
+  explicit AsyncProgressQueueWorker(Callback *callback_);
 
   virtual ~AsyncProgressQueueWorker();
 
@@ -142,5 +137,3 @@ Definition:
 ```c++
 void AsyncQueueWorker(AsyncWorker *);
 ```
-
-[AsyncResource]: "node_misc.html#api_nan_asyncresource"

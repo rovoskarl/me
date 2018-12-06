@@ -33,7 +33,7 @@ export default moment.defineLocale('pt-br', {
     },
     relativeTime : {
         future : 'em %s',
-        past : 'há %s',
+        past : '%s atrás',
         s : 'poucos segundos',
         ss : '%d segundos',
         m : 'um minuto',

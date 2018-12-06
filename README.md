@@ -1,33 +1,125 @@
-hexo-theme-material-indigo
-================
+> This HuWeihuang theme created by [HuWeihuang](http://www.huweihuang.com/) modified from the original Porter [YuHsuan](https://github.com/YenYuHsuan/hexo-theme-beantech)
+> 
+> This theme has been published to the [hexo theme list](https://hexo.io/themes/).
 
-[![Join the chat at https://gitter.im/hexo-theme-indigo/Lobby](https://badges.gitter.im/hexo-theme-indigo/Lobby.svg)](https://gitter.im/hexo-theme-indigo/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Live Demo
 
-Material Design 风格的Hexo主题，基于 Hexo 3.0+ 制作。 [Preview](http://imys.net/)
+Hu Weihuang Blog : [www.huweihuang.com](http://www.huweihuang.com/)
 
-> 现有两个主题分支，我的博客中使用的是 card 分支卡片风格主题，master 分支是旧版平铺式风格主题。
+![Theme_HuWeihuang](http://ozilwgpje.bkt.clouddn.com/blog.jpg)
 
-## Feature
+# Copyright Notice
 
-1. 仅支持 IE10+ 等现代浏览器。
-2. 去 jQuery，更轻。相信现代浏览器的原生兼容性。
-3. 使用 Less 作为 css 预处理器，需要安装 `hexo-renderer-less`。
-4. 添加了英文字体支持 Roboto。
-5. 添加了一些波纹效果。By [Waves](https://github.com/fians/Waves)
-6. 无前端依赖的分享实现。
-7. 基于静态数据的站内搜索，无第三方侵入。
-8. 支持文章打赏。
+**You can free to use this theme, but you need to keep the following copyright notice on the website.**
 
-## Useage
+<img src="https://res.cloudinary.com/dqxtn0ick/image/upload/v1537879475/header/copyright.png" width="55%">
 
-[文档 | Document](https://github.com/yscoder/hexo-theme-indigo/wiki)
+# Install Hexo
 
-## ChangeLog
+Install Node.js  and Git
 
-升级前请仔细查看更改内容，如非必要可不升级。
+```shell
+#For Mac
+brew install node
+brew install git
+```
 
-[ChangeLog](https://github.com/yscoder/hexo-theme-indigo/releases)
+Install hexo
 
-## OtherVersion
+```shell
+npm install hexo-cli -g
 
-* [vuepress-theme-indigo](https://github.com/yscoder/vuepress-theme-indigo)
+#For more:https://hexo.io/zh-cn/index.html
+```
+
+# Theme Usage
+
+## Init
+
+```bash
+git clone https://github.com/huweihuang/hexo-theme-huweihuang.git ./hexo-huweihuang
+cd hexo-huweihuang
+npm install
+```
+
+## Modify
+Modify `_config.yml` file with your own info.
+Especially the section:
+### Deployment
+Replace to your own repo!
+```yml
+deploy:
+  type: git
+  repo: https://github.com/<yourAccount>/<repo>
+  branch: <your-branch>
+```
+
+### Sidebar settings
+Copy your avatar image to `<root>/img/` and modify the `_config.yml`:
+```yml
+sidebar: true    # whether or not using Sidebar.
+sidebar-about-description: "<your description>"
+sidebar-avatar: img/<your avatar path>
+```
+and activate your personal widget you like
+```yml
+widgets:         # here are widget you can use, you can comment out
+- featured-tags
+- short-about
+- recent-posts
+- friends-blog
+- archive
+- category
+```
+if you want to add sidebar widget, please add at `layout/_widget`.
+### Signature Setup
+Copy your signature image to `<root>/img/signature` and modify the `_config.yml`:
+```yml
+signature: true   # show signature
+signature-img: img/signature/<your-signature-ID>
+```
+### Go to top icon Setup
+My icon is using iron man, you can change to your own icon at `css/image`.
+
+### Post tag
+You can decide to show post tags or not.
+```yml
+home_posts_tag: true
+```
+ ![tag](https://raw.githubusercontent.com/huweihuang/hexo-theme-huweihuang/master/source/img/article/tag.png)
+### Markdown render
+My markdown render engine plugin is [hexo-renderer-markdown-it](https://github.com/celsomiranda/hexo-renderer-markdown-it).
+```yml
+# Markdown-it config
+## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
+markdown:
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: true
+    linkify: true
+    typographer: true
+    quotes: '“”‘’'
+```
+and if you want to change the header anchor 'ℬ', you can go to `layout/post.ejs` to change it.
+```javascript
+async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: ℬ // this is the header anchor "unicode" icon
+        };
+```
+
+## Hexo Basics
+Some hexo command:
+```bash
+hexo new post "<post name>" # you can change post to another layout if you want
+hexo clean && hexo generate # generate the static file
+hexo server # run hexo in local environment
+hexo deploy # hexo will push the static files automatically into the specific branch(gh-pages) of your repo!
+```
+
+# Have fun ^_^ 
+Please <a class="github-button" href="https://github.com/huweihuang/hexo-theme-huweihuang" data-icon="octicon-star" aria-label="Star huweihuang/hexo-theme-huweihuang on GitHub">Star</a> this Project if you like it! <a class="github-button" href="https://github.com/huweihuang" aria-label="Follow @huweihuang on GitHub">Follow</a> would also be appreciated!
+Peace!
