@@ -47,7 +47,10 @@ anchorjs: true                          # if you want to customize anchor. check
 
 # Disqus settings
 #disqus_username: your-disqus-ID
-
+disqus:
+  enable: true
+  shortname: deppwang    #your name
+  count: true
 # Duoshuo settings
 # duoshuo_username: kaijun
 # Share component is depend on Comment so we can NOT use share only.
@@ -89,16 +92,16 @@ featured-condition-size: 5              # A tag will be featured if the size of 
 ## Friends
 friends: [
     {
-        title: "CSDN Blog 张创业",
-        href: "http://blog.csdn.net/huwh_"
+        title: "Twtter 张创业",
+        href: "https://twitter.com/chuangye_zhang"
     },
     {
-       title: "DockOne 张创业",
-        href: "http://dockone.io/people/张创业"
+       title: "github 张创业",
+        href: "https://github.com/zhangchuangye"
     },
     {
-        title: "阿里云栖社区 张创业",
-        href: "https://yq.aliyun.com/u/huweihuang"
+        title: "博客园 张创业",
+        href: "https://www.cnblogs.com/zhangchuangye/"
     }
 ]
 
