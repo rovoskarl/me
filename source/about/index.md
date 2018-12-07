@@ -20,17 +20,15 @@ fixed: false
 
 ### 兴趣方向
 
-> 容器云（Docker、Kubernetes等）相关生态技术研究。
+> 跨平台开发（flutter、appcan等）相关生态技术研究。
 
 ### 参与社区
 
- > CSDN博客:http://blog.csdn.net/huwh_
+ > 博客园:https://www.cnblogs.com/zhangchuangye/
  >
- > Github:https://github.com/huweihuang
+ > Github:https://github.com/zhangchuangye
  >
- > 阿里云栖社区:https://yq.aliyun.com/u/huweihuang
- >
- > DockOne社区:http://dockone.io/people/张创业
+ > Twitter:https://twitter.com/chuangye_zhang
 
 ### 联系我
 

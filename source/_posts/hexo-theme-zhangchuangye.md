@@ -43,7 +43,7 @@ npm install hexo-cli -g
 
 ---
 ```bash
-git clone https://github.com/huweihuang/hexo-theme-huweihuang.git ./hexo-huweihuang
+git clone https://github.com/zhangchuangye/zhangchuangye_hexo.git ./hexo-huweihuang
 cd hexo-huweihuang
 npm install
 ```
@@ -134,5 +134,5 @@ hexo deploy # hexo will push the static files automatically into the specific br
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Place this tag where you want the button to render. -->
 
-Please <a class="github-button" href="https://github.com/huweihuang/hexo-theme-huweihuang" data-icon="octicon-star" aria-label="Star huweihuang/hexo-theme-huweihuang on GitHub">Star</a> this Project if you like it! <a class="github-button" href="https://github.com/huweihuang" aria-label="Follow @huweihuang on GitHub">Follow</a> would also be appreciated!
+Please <a class="github-button" href="https://github.com/zhangchuangye/zhangchuangye_hexo" data-icon="octicon-star" aria-label="Star huweihuang/hexo-theme-huweihuang on GitHub">Star</a> this Project if you like it! <a class="github-button" href="https://github.com/zhangchuangye" aria-label="Follow @huweihuang on GitHub">Follow</a> would also be appreciated!
 Peace!

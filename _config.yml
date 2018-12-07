@@ -65,7 +65,7 @@ ga_domain: yoursite
 # Sidebar settings
 sidebar: true                       # whether or not using Sidebar.
 sidebar-about-description: "Stay hungry,Stay foolish"
-sidebar-avatar: /img/avatar/ironman.png      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar/u=836347952,1658646299&fm=27&gp=0.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 widgets:
 - featured-tags
 - short-about
@@ -83,24 +83,24 @@ show_count: true
 
 ## Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+featured-condition-size: 5              # A tag will be featured if the size of it is more than this condition value
 
 
 ## Friends
-#friends: [
- #   {
-  #      title: "CSDN Blog 张创业",
-   #     href: "http://blog.csdn.net/huwh_"
-    #},
-    #{
-     #   title: "DockOne 张创业",
-      #  href: "http://dockone.io/people/张创业"
-    #},
-    #{
-     #   title: "阿里云栖社区 张创业",
-      #  href: "https://yq.aliyun.com/u/huweihuang"
-    #}
-#]
+friends: [
+    {
+        title: "CSDN Blog 张创业",
+        href: "http://blog.csdn.net/huwh_"
+    },
+    {
+       title: "DockOne 张创业",
+        href: "http://dockone.io/people/张创业"
+    },
+    {
+        title: "阿里云栖社区 张创业",
+        href: "https://yq.aliyun.com/u/huweihuang"
+    }
+]
 
 
 #Custom Setting End
@@ -216,6 +216,6 @@ sitemap:
 # branch: master
 deploy:
   type: git
-  repository: https://github.com/huweihuang/hexo-theme-huweihuang
+  repository: https://github.com/zhangchuangye/zhangchuangye_hexo
   branch: gh-pages
   message: Update CNAME
