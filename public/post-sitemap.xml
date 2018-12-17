@@ -7,8 +7,24 @@
     </url>
 
     <url>
+        <loc>http://www.zhangcy.club/article/state-getters-mutations-actions/</loc>
+        <lastmod>2018-12-15T07:50:05.214Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.zhangcy.club/article/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E4%BB%8B%E7%BB%8D/</loc>
+        <lastmod>2018-12-08T08:47:38.107Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.zhangcy.club/article/something-has-to-be-written/</loc>
-        <lastmod>2018-12-07T03:22:07.601Z</lastmod>
+        <lastmod>2018-12-07T08:27:33.913Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
