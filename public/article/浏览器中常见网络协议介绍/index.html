@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="null" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>张创业 - 个人博客</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="zhangchuangye,"> 
+    
+    <meta name="author" content="张创业"> 
+    <link rel="alternative" href="atom.xml" title="张创业" type="application/atom+xml"> 
+    <link rel="icon" href="/img/zhangchuangye.ico"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">[WEB技术]浏览器中常见网络协议介绍</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">[WEB技术]浏览器中常见网络协议介绍</h1>
+        <div class="stuff">
+            <span>十二月 08, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/WEB技术/">WEB技术</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>上周五我在公司有一个关于《HTTP 协议》的培训，只有两个小时，估计能讲到的东西不会太多。实际上，浏览器为了完成 WEB 应用的各项功能，需要跟各种网络协议打交道，HTTP 只是其中一种。本文会介绍浏览器中常见的网络协议，以及各种协议之间的关系。</p>
+<p>我们经常会听到「TCP/IP 协议」这个名词，从字面上看，有人会认为它专指 TCP 和 IP 两种协议。实际上大多数情况，TCP/IP 协议指的是整个网际协议族（Internet Protocol Suite），是利用 IP 协议进行通讯的其他协议统称。TCP/IP 包含的协议众多，还有一个分层模型。相比较 OSI 模型，TCP/IP 的分层更简单，从下到上分别为：物理层、数据链路层、网络层、传输层和应用层。</p>
+<p>IP（Internet Protocol）属于网络层协议，负责联网主机之间的路由选择和寻址。IPv4 中的 4 指的是 TCP/IP 协议的第 4 个版本，直到这个版本，IP 协议才单独拆出来，所以并没有单独的 IPv1 - IPv3。而 IPv5 分给了一个没什么进展的试验性协议，所以下一个版本的 IP 协议变成了 IPv6。</p>
+<p>TCP（Transmission Control Protocol）和 UDP（User Datagram Protocol）是整个 TCP/IP 协议中最重要的两个传输层协议。TCP 是面向连接的、可靠的流协议；UDP 是不具有可靠性的数据报协议。后面可以看到，对可靠性要求比较高的上层协议一般会基于 TCP；而对高速传输和实时性有较高要求的上层协议一般会基于 UDP。</p>
+<p>介绍完比较低层的 IP、TCP 和 UDP 之后，下面看几个浏览器中常见的应用层协议。</p>
+<h3 id="http-与-websocket">HTTP 与 WebSocket</h3>
+<p>HTTP 协议是浏览器需要用到的最重要的网络协议，它包括很多版本，例如最常见的 HTTP/1.1，刚刚发布的 HTTP/2，还有 Google 实现的过渡版本 SPDY 等等。本文不讨论 HTTP 的细节以及各版本之间的差异，只打算列出 HTTP 与其他协议 / 应用之间的关系，见下图：</p>
+<img src="/img/浏览器中常见网络协议介绍/WX20181208-163842@2x.png">
+<p>从上图可以看出 HTTP 是在 TCP 之上实现的，所以 HTTP 中并不需要关注数据传输的可靠性，类似于顺序控制、重发这样的机制在传输层已经有了。同时，HTTP 也拥有 TCP 的一些缺点，给 WEB 性能优化带来挑战。</p>
+<p>XHR（XmlHTTPRequest）和 SSE（Server-Sent Events）都是浏览器提供的数据交互功能，它们的本质都还是 HTTP。XHR 是 Ajax 技术的核心，大家都很熟，这里略过不讨论；SSE 概念还算新，多说几句。我们知道 HTTP 只能由客户端发起请求，再由服务端响应。SSE 也是这样，只不过服务端会保持住这个 HTTP 连接，多次发送响应，不像平时发送完响应就结束了。实际上，很早之前在 WebIM 中类似的 HTTP 长连接技术就已经很盛行了，有兴趣的同学可以看下这篇八年前的文章：Comet：基于 HTTP 长连接的「服务器推」技术。</p>
+<p>既然 XHR 和 SSE 本质都是 HTTP 连接，所以 HTTP 协议中一些常见概念，例如请求方式（GET、POST 等），请求响应头部（Cookie、内容编码、传输编码、缓存等）等等，依然存在。</p>
+<p>而 WS（WebSocket）是直接基于 TCP 实现的，HTTP 协议中的那些概念都不复存在。需要注意的是，从前面图表中可以看出，它还是依赖于 HTTP，这是因为 WebSocket 握手利用了 HTTP 的 Upgrade 机制。一旦握手完成，后续数据传输就直接在 TCP 上完成。浏览器中新协议借助 HTTP 作为引导，是一个较为普遍的做法。</p>
+<p>TLS（Transport Layer Security，传输层安全），作用是保证数据在传输过程中的完整性和保密性，属于可选项。启用了 TLS 之后，HTTP 协议的 URL 前缀需要由 http:// 改成 https://；WebSocket 协议的 URL 前缀需要由 ws:// 改成 wss://。</p>
+<h3 id="dns">DNS</h3>
+<p>DNS（Domain Name System），就是大家熟知的域名解析服务，提供了从域名到 IP 的转换。浏览器中大部分网络交互都会使用域名，而传输层协议需要的是 IP，所以 DNS 是基础。</p>
+<img src="/img/浏览器中常见网络协议介绍/WX20181208-163922@2x.png">
+<p>DNS 服务默认使用 UDP 协议获得查询结果，通常仅当结果超过 512 字节或者进行 DNS 服务器同步时才会使用 TCP 协议。这是因为 DNS 的使用非常频繁，又是基础，响应速度是优先需要考虑的。使用 UDP 可以满足速度上的要求，但同时也引入了类似于「DNS 缓存投毒」这类问题。</p>
+<h3 id="webrtc">WebRTC</h3>
+<p>WebRTC（Web Real-Time Communication）出现之前，DNS 几乎是浏览器唯一使用的基于 UDP 的协议。WebRTC 提供的三大功能中，MediaStream 与网络无关，RTCPeerConnection 和 RTCDataChannel 都是基于 UDP，如图：</p>
+<img src="/img/浏览器中常见网络协议介绍/WX20181208-163941@2x.png">
+<p>这个图比较复杂，我们从下往上介绍：</p>
+<p>ICE（Interactive Connectivity Establishment）框架，作用是在端与端之间建立一条有效的通道，优先直连，其次用 STUN 协商，再不行只能用 TURN 转发：</p>
+<p>STUN（Session Traversal Utilities for NAT）协议，解决了三个问题：1）获得外网 IP 和端口；2）在 NAT 中建立路由条目，绑定外网端口，使得到达外网 IP 和端口的入站分组能找到应用程序，不被丢弃；3）定义了一个简单的 keep-alive 机制，保证 NAT 路由条目不会因为超时而被删除。STUN 服务器必须架设在公网上，可以自己搭建，也可以使用第三方提供的公开服务，例如 Google 的「stun:stun.l.google.com:19302」。<br>
+TURN（Traversal Using Relays around NAT）协议，依赖外网中继设备在两端之间传递数据。简单说就是通过两端都可以访问的 TURN 服务转发消息，间接把两端连起来。<br>
+DTLS（Datagram Transport Layer Security，数据报传输层安全），本质上就是 TLS，只是为了兼容 UDP 的数据报传输而做了一些微小的修改，可以简单把它理解为 UDP 版的 TLS。</p>
+<p>再往上就兵分两路，一路的目标是 RTCPeerConnection，负责音频和视频数据通信，对传输速度和实时性有很高的要求，这里又有两个新的协议出现：</p>
+<p>SRTP（Secure Real-time Transport Protocol，安全实时传输协议）。WebRTC 中的音频和视频等实时数据都是通过这个协议传输。它是 RTP 协议的安全版。<br>
+SRTCP（Secure Real-Time Control Transport Protocol，安全实时控制传输协议）。它会跟踪 SRTP 的运行情况，以便调整每个流的发送速率、编码品质和其他参数。它是 RTCP 协议的安全版。<br>
+另一路的目标是 RTCDataChannel，用来在端到端之间传输任意应用数据，SRTP 是专门为传输媒体数据为设计的，不适合传输应用数据，所以这里又需要一个新的协议：</p>
+<p>SCTP（Stream Control Transmission Protocol，流控制传输协议）。本身 SCTP 是一个传输层协议，直接运行在 IP 协议之上，与 TCP 和 UDP 类似。但在 WebRTC 这里，SCTP 却运行于 DTLS 之上。SCTP 很好的一点是提供了交付属性选项，使用者可以指定消息是有序还是乱序，是可靠还是部分可靠，部分可靠时还可以指定使用超时重传还是计数重传策略。<br>
+QUIC<br>
+Google 正在试验一种新的传输层协议：QUIC（Quick UDP Internet Connections），它的本质是基于 UDP 实现 HTTP，相当于之前的 TCP + TLS。从目前的资料来看，QUIC 可以大幅减少建立连接的时间，这是通过简化握手步骤从而减少 RTT（Round-Trip Time）来实现的，类似于 TFO（TCP Fast Open）。有兴趣的同学可以点这个连接围观，据说 Google 自家服务来自 Chrome 的请求中，已经有 50% 使用了 QUIC 协议。</p>
+<p>最后表达下对 Google 的佩服。Google 为了优化 WEB 性能，在浏览器（Chrome）、排版引擎（Blink）、JS 引擎（V8）、图片格式（WebP）、传输层协议（TCP 的 TFO，QUIC）、应用层协议（SPDY）以及 HTML5（从 Google Gears 开始）等等方面都做了大量努力，实在是技术型公司典范，叹为观止！</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#http-与-websocket"><span class="toc-number">1.</span> <span class="toc-text">HTTP &#x4E0E; WebSocket</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dns"><span class="toc-number">2.</span> <span class="toc-text">DNS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webrtc"><span class="toc-number">3.</span> <span class="toc-text">WebRTC</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

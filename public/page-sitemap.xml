@@ -7,29 +7,29 @@
     </url>
     
     <url>
-        <loc>http://www.zhangcy.club/about/</loc>
-        <lastmod>2018-12-07T01:48:26.242Z</lastmod>
+        <loc>http://www.zhangcy.club/404.html</loc>
+        <lastmod>2019-09-24T07:21:34.379Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://www.zhangcy.club/tags/</loc>
-        <lastmod>2018-12-06T08:51:11.678Z</lastmod>
+        <lastmod>2019-09-24T07:21:29.988Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://www.zhangcy.club/about/</loc>
+        <lastmod>2019-09-24T07:21:29.883Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://www.zhangcy.club/archive/</loc>
-        <lastmod>2018-12-06T06:19:00.457Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>http://www.zhangcy.club/404.html</loc>
-        <lastmod>2018-12-06T06:19:00.452Z</lastmod>
+        <lastmod>2019-09-24T07:21:29.345Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

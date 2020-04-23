@@ -207,7 +207,7 @@ data-fixed: true
   # data-autoplay:    
 
 ## Themes: https://hexo.io/themes/
-theme: zhangchuangye
+theme: diaspora
 
 #sitemap
 sitemap:

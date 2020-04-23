@@ -20,7 +20,7 @@ fixed: false
 
 ### 兴趣方向
 
-> 跨平台开发（flutter、appcan等）相关生态技术研究。
+> 跨平台开发（flutter、panddlepanddle等）相关生态技术研究。
 
 ### 参与社区
 
